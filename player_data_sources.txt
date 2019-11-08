@@ -1,0 +1,5 @@
+urls for sourcing data: 
+
+1. https://www.fftoday.com/rankings/playerwkproj.php?Season=2019&GameWeek=10&PosID=10&LeagueID=193033
+
+2. https://www.footballdb.com/fantasy-football/index.html?pos=QB%2CRB%2CWR%2CTE&yr=2019&wk=9&rules=2
