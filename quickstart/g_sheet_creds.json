@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "fantasy-data-build",
+  "private_key_id": "945162ce39b80635a08b0e484d7300d81d718785",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDVRnKsC3NANb5q\nsB0JS9qW5MSgw5iOemIXFLVsUY7UBu6YJIxs+SnhJ/oM4HcwV5eP2tEvWM9fBvaB\nQuUTW5STQSGyxa9NGLC9VWTDbPYM5mqiB3LmJsawUpN/9bEUzNIFKl0nVVKVzKnx\nWIWfPVH7agn+rj33UNfnpKCk83xYI3ZM7I+qGDCPfLRY8Xk4P7zFsYJUteDXNyDN\ncL5oZ2rZ0k5p2/+Lxm7QehwQLgN4X5Q6VnrU8gfhI1iKgLy3XEXEci4hOJVbA3a2\nYQ5qMEoROmj1Kj1QyFpOFp7FKLn5z9JMDfcS4aZKfxDi1W28X5WmLVAHqMeRzWW/\nTToSCBR9AgMBAAECggEAASRqcs9w45QmG+4riaQ1XH+HKhFCHOk840DCI/1f1XTg\nDEKN2fuPpNwQ88az/LdLYYLbgfRoz+p6oYCZN3xTFGLR6mIyqSgLskflzUIlIzaM\ntadyjxcAE2utzI6lTyY1rb9nVlGXqqO4+UjvFkY+zSjpOsr2G//72ArCrX98WAB+\nHcPwSFz8RYkPtZFm6qs+BR5Jr8J1RMgX7UufyDmPpFjqYlDLoaFFAYPTIVVNyCb9\n6SdaOhbMPLaLJXC/UO0i1g2Pmp2JlADwGK/L3F1yc4dF09IY4UT9A52jACeYLHUX\nEruI0f56EU4h5v5woYUGXMx6vtU6XlSovRqnJSv0pQKBgQDvf77Gt+SJgRqxERBR\n+5rVAJW2bdbImBViJ5zttrqk54Y8HHarxrUkpLu5F9CtSJj4jGmbPlN9/My+Rh0n\nDhASDm+bRRpxsfnopU3Sij5vQddgjlWRsmRyP5tx8wkkY8VSBcNHx0dVLH1e/v0h\nqFj1m5jqt0NEXeRX/e/n4lB8CwKBgQDj+CuP1kqHUIKnp1eu1+DwQlTT49k9RLPT\ng+AoU1bOw/EZbVsnsuf7jw7fkqtK6ex88NVBulbTLuQytj6Qyz8/PhufIU1n0vaE\n2+lDDPCHrsSBZ511YTirFJIQh0vVuwuSozRmtGln4sinlkjjz7fxIJNE/rqy7po7\n4HDU3fT+lwKBgHZyW0u0TtaifyzrH4MsSFrnuyNKF1uFu62bocT/BjfgOUcpXJd/\n4r6Iqj7URGQu71idOO2KWYiJqkjALFLQZapIcXH9LyLjvpEMj/x8Wnxzt60NN8yi\nyYKnap1kcTUKEuCJ8RZivCinpCmDOnWW6Mgvd+U9VYtOVEwgTrID/4IZAoGANgnK\n0bK7Qe4cun8ZctGreWhP0VZuVW6mrdnR1d1Dc4nQ6fUZKYToJqJXpTmQLxbaPxeb\nhZQVJsQzxa2bkRkMqgIf7A2p2pWQaBf06Db2AUO1QvN7yKo+E5extAdOO6C18pGL\nR1k2rzB73fXq202OzbKqFi3HtciHePAP7vWaMIsCgYEAu8UkFVNFmVJieoV7vrmB\nkCkD/l/0duWx/c3Z3BtVq3AwywBJu6x23GQCIPNk3oyJCnO4PMIWzCsLuTdDPZxz\nulyLWHCzrdsVfrdVwYcC1ktyU0KjfQdiVeZg2cDDEUgDivA6ZC/OkUra6csUtd9y\n5SlA488h7gcbMDgimzn0IAY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "players@fantasy-data-build.iam.gserviceaccount.com",
+  "client_id": "116028828914199090078",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/players%40fantasy-data-build.iam.gserviceaccount.com"
+}
