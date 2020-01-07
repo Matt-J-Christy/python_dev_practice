@@ -43,7 +43,7 @@ def scraper(page_url, sheet_name, share_mail):
         T=table_elements[j]
 
         #If row is not of size 24, the //tr data is not from our table 
-        if len(T)!=12:
+        if len(T)!=len(colnames):
             break
 
         #i is the index of our column
@@ -97,7 +97,7 @@ def scraper(page_url, sheet_name, share_mail):
         index = i+1
         if i%10 == 0: #printing the step in the loop
             print(i)  
-            time.sleep(15)
+            time.sleep(20)
             
         ws.insert_row(row, index) #writing the data 
     
