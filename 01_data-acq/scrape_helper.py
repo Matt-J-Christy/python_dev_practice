@@ -43,7 +43,7 @@ def scraper(page_url, sheet_name, share_mail):
         T=table_elements[j]
 
         #If row is not of size 24, the //tr data is not from our table 
-        if len(T)!=12:
+        if len(T)!=len(colnames):
             break
 
         #i is the index of our column
@@ -72,7 +72,11 @@ def scraper(page_url, sheet_name, share_mail):
     fixed = ['Name', 'Team', 'Opp', 'Score']
     for i in fixed:
         df.loc[:, i] = df.loc[:, i].astype(str).str.translate(translator)
-        
+    
+    week = page_url.split('week=', 1)[1][0]
+    
+    df.insert(1, 'Week', week)
+    
     #Grapping Parameters for looping 
     n_rows = df.shape[0]
     n_cols = df.shape[1]
@@ -97,7 +101,7 @@ def scraper(page_url, sheet_name, share_mail):
         index = i+1
         if i%10 == 0: #printing the step in the loop
             print(i)  
-            time.sleep(15)
+            time.sleep(20)
             
         ws.insert_row(row, index) #writing the data 
     
