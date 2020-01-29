@@ -72,9 +72,9 @@ def scraper(page_url, sheet_name, share_mail):
     fixed = ['Name', 'Team', 'Opp', 'Score']
     for i in fixed:
         df.loc[:, i] = df.loc[:, i].astype(str).str.translate(translator)
-    
-    week = page_url.split('week=', 1)[1][0]
-    
+    import re 
+    week = re.search('week=(.*)&season', urls[0]).group(1)
+     
     df.insert(1, 'Week', week)
     
     #Grapping Parameters for looping 
