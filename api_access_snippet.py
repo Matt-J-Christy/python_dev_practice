@@ -11,3 +11,9 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('../quickstart/g_sheet_
 #create gspread authorize using that credential
 client = gspread.authorize(creds)
 my_email = 'matthewjchristy66@gmail.com'
+
+def read_file(sheet_name):
+    out = client.open(sheet_name).sheet1
+    out = out.get_all_values()
+    out = pd.DataFrame(out, columns = out.pop(0))
+    return(out)
