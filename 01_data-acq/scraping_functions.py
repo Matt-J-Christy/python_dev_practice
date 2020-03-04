@@ -1,18 +1,13 @@
-
-def scraper(page_url, sheet_name, share_mail): 
-    
-    my_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'}
-    
+def get_url(url):
     #grabbing the HTML and getting text 
-    fantasy_page = get(page_url, headers = my_header)
-
-    doc = lh.fromstring(fantasy_page.content)
+    my_header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'}
+    fantasy_page = get(url, headers = my_header)
     
-    print(fantasy_page)
+    return(fantasy_page)
     
-    #parsing table elements in the HTML inside the pattern "//tr" --> this is a table element 
-
-    table_elements = doc.xpath('//tr')
+def get_headers(html):
+    
+    doc = lh.fromstring(html.content)
     
     #getting column names 
     title = doc.xpath('//tr//th')
@@ -24,14 +19,20 @@ def scraper(page_url, sheet_name, share_mail):
     for i in range(0, n):
         name = title[i].text_content()
         colnames.append(name)
-            
-  #creating an empty array to insert the table elements 
+    
+    return(colnames)    
+    
+    
+def get_table_data(html, colnames):
+     
+    #parsing table elements in the HTML inside the pattern "//tr" --> this is a table element 
+    doc = lh.fromstring(html.content)
+    table_elements = doc.xpath('//tr')
+    
+    #creating an empty array to insert the table elements 
     cols = []
 
-    i = 0 #setting the increment 
-
     for j in range(0, len(colnames)):
-        i+1
         name = colnames[j] #getting the column name from the HTML table 
         #print('%d:"%s"'% (i, name))
         cols.append((name, []))
@@ -57,12 +58,16 @@ def scraper(page_url, sheet_name, share_mail):
             cols[i][1].append(data)
             #Increment i for the next column
             i+=1
-        
+    return(cols)
+    
+def create_df(cols):
     #creating a dictionary for the columns in the parsed table 
     Dict={title:column for (title,column) in cols}
 
     df=pd.DataFrame(Dict)
+    return(df)
     
+def clean_df(df, page_url):
     #data cleaning 
     escapes = ''.join([chr(char) for char in range(1, 32)])
     translator = str.maketrans('', '', escapes)
@@ -77,33 +82,8 @@ def scraper(page_url, sheet_name, share_mail):
      
     df.insert(1, 'Week', week)
     
-    #Grapping Parameters for looping 
-    n_rows = df.shape[0]
-    n_cols = df.shape[1]
-    
-    #writing to google sheets 
-    import time 
-
-    #Now will can access our google sheets we call client.open on StartupName
-    sheet = client.create(sheet_name) #2019-q4_fantasy-web-scraping/passing
-
-    sheet.share(share_mail,  perm_type='user', role='writer') #sharing my email 
-    
-    #writing data to the worksheet
-    ws = sheet.get_worksheet(0)
-
-    shaped_data = df.transpose()
-
-    ws.insert_row(df.columns.tolist(), 1)
-
-    for i in range(1, n_rows+1): 
-        row = df.iloc[i-1].tolist()
-        index = i+1
-        if i%10 == 0: #printing the step in the loop
-            print(i)  
-            time.sleep(20)
-            
-        ws.insert_row(row, index) #writing the data 
-    
-    print('row ', i, ' end of file')
-    time.sleep(45)
+    #casting to strings 
+    df = df.astype(str)
+       
+    #returning the df
+    return(df)
