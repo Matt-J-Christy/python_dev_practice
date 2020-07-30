@@ -3,10 +3,14 @@ def writer(data, sheet_name, share_email):
     n_rows = data.shape[0]
     n_cols = data.shape[1]
     
-    #creating sheets
-     #Now will can access our google sheets we call client.open on StartupName
-    sheet = client.create(sheet_name) 
-    sheet.share(share_email,  perm_type='user', role='writer') #sharing my email 
+    #load sheet if it exists or create and share sheet if it does not
+    try:
+        sheet = client.open(sheet_name) 
+    except:
+        #creating sheets
+          #Now will can access our google sheets we call client.open on StartupName
+        sheet = client.create(sheet_name) 
+        sheet.share(share_email,  perm_type='user', role='writer') #sharing my email 
     
     #getting cell list to batch update
     import string
