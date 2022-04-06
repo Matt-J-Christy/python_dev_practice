@@ -5,20 +5,27 @@
 import gspread
 from requests import get
 import lxml.html as lh
-from bs4 import BeautifulSoup
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
+import os
 
 
-# what my default credential look like 
+# what my default credential look like
 
-scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-#create some credential using that scope and content of startup_funding.json
-creds = ServiceAccountCredentials.from_json_keyfile_name('../quickstart/g_sheet_creds.json',scope)
-#create gspread authorize using that credential
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+# create some credential using that scope and content of startup_funding.json
+
+creds_file = os.path.join(
+    os.path.dirname(__file__),
+    '../g_sheet_creds.json'
+)
+
+creds = ServiceAccountCredentials.from_json_keyfile_name(
+    creds_file, scope)
+# create gspread authorize using that credential
 client = gspread.authorize(creds)
 my_email = 'matthewjchristy66@gmail.com'
-
 
 
 def get_url(url):
@@ -59,10 +66,11 @@ def get_table_data(html, colnames):
 
     for j in range(0, len(colnames)):
         name = colnames[j]  # getting the column name from the HTML table
-        #print('%d:"%s"'% (i, name))
+        # print('%d:"%s"'% (i, name))
         cols.append((name, []))
 
-   # Since out first row is the header, data is stored on the second row onwards
+    # Since out first row is the header,
+    #  data is stored on the second row onwards
 
     for j in range(1, len(table_elements)):
         # T is our j'th row
@@ -129,9 +137,10 @@ def writer(data, sheet_name, share_email):
     # load sheet if it exists or create and share sheet if it does not
     try:
         sheet = client.open(sheet_name)
-    except:
+    except gspread.exceptions.SpreadsheetNotFound:
         # creating sheets
-          # Now will can access our google sheets we call client.open on StartupName
+        # Now will can access our google sheets we call
+        #  client.open on StartupName
         sheet = client.create(sheet_name)
         sheet.share(share_email,  perm_type='user',
                     role='writer')  # sharing my email
