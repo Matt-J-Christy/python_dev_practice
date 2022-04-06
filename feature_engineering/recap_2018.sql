@@ -35,7 +35,7 @@ create table receiving_2018 (
     FUMs real,
     ppg real,
     td_per_game real,
-    int_per_game real
+    fum_per_game real
 );
 
 -- insert summary data into the various tables
