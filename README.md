@@ -1,26 +1,26 @@
-## NFL Fantasy Model & Application 
+# NFL Fantasy Model & Application 
 
-### Build Process 
-    1. web scrape the data
-    2. clean data for writing to gdrive
-    3. drop into google sheets (defacto DB)
-    4. feature engineer 
-    5. model for player score 
-    6. develop web app for automation and dashboarding 
-    7. build optimazation process for line-up generation 
+### Project Outline 
+    1. web scrape the data or use API thne write to Google drive
+    2. write data to SQLite DB and feature engineer
+    3. model for player score 
+        - create 3 different models for passing, rushing and receiving yards
+        - add scores and calculate estimated total score
+        - candidate models:
+            - OLS (regular linear regression)
+            - mixed Effects model
+            - some combination of GLM for E[score > 0] and OLS for E[score | score > 0]
+    4. develop dashboard for vizsualizations and player recommendations
+    5. build optimazation process for line-up generation 
 
-### Process Status 
-    1. functional framework developed. Code optimization next step. 
-    2. cleaning process complete - NFL.com is the source of player data 
-    3. ability to write and scrape at scale - complete and functionalized 
-    4. player panel data ready for modeling. 
-        * looking to add data on opp defensive rank, active status and depth chart status 
-    5.  
-    6. WIP - current fuctionality:
-        1. Display output table 
-        2. upload & download CSV output 
-    7. Not developed 
-        * will require list of player salaries 
-        * predictions and variance 
-        * ability to input line-up parameters and restrictions
+### Project Status 
+    1. Code is in an O.K. place, but the current scraping process is rusted. (Thanks NLF dot com for changing your website)
+        - looking for API to get more reliable data source and more features
+    2. Feature engineering using SQLite is done 
+        - player panel data ready for modeling. 
+        - in the future looking to add data on opp defensive rank, active status and depth chart status 
+    3. WIP
+    4. Not Started 
+    5. Not Started
+
     
