@@ -1,7 +1,7 @@
 # NFL Fantasy Model & Application 
 
 ## Project Outline 
-1. web scrape the data or use API thne write to Google drive
+1. web scrape the data or use API the write to Google drive
 2. write data to SQLite DB and feature engineer
 3. model for player score 
     - create 3 different models for passing, rushing and receiving yards
