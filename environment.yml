@@ -20,4 +20,3 @@ dependencies:
     - google-auth-httplib2
     - google-auth-oauthlib
     - gspread
-    - sqlite3
